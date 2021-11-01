@@ -6,6 +6,7 @@ import {
   REMOVE_BILL,
   REMOVE_INGREDIENTS
 } from '../actions'
+import {ENABLE_STATUS, REMOVE_STATUS} from "../components/actions";
 
 const initialState = {
   Ingredients: {
@@ -16,7 +17,7 @@ const initialState = {
   },
   number: 0,
   Bill: 0,
-  status: {
+  Status: {
     Lettuce: false,
     Tomato: false,
     Meat: false,
@@ -24,6 +25,7 @@ const initialState = {
   }
 }
 function reducer(state = initialState, action) {
+
   switch (action.type) {
     case ADD_ONE:
       return {
@@ -52,6 +54,16 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         Bill: action.payload.Bill
+      }
+    case REMOVE_STATUS:
+      return {
+        ...state,
+        Status: action.payload.Status
+      }
+    case ENABLE_STATUS:
+      return {
+        ...state,
+        Status: action.payload.Status
       }
     default:
       return state

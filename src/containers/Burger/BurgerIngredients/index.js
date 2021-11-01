@@ -5,6 +5,8 @@ import Lettuce from 'assets/images/lettuse.jpg'
 import Meat from 'assets/images/meat.jpg'
 import Tomato from 'assets/images/tomato.jpg'
 
+
+
 const BurgerIngredients = ingredients => {
   return (
     <div>
@@ -12,12 +14,6 @@ const BurgerIngredients = ingredients => {
         ingredients.ingredients[ingredient].map(() =>
           (() => {
             switch (ingredient) {
-              case 'Meat':
-                return (
-                  <div>
-                    <img src={Meat} />
-                  </div>
-                )
               case 'Cheese':
                 return (
                   <div>
@@ -26,15 +22,21 @@ const BurgerIngredients = ingredients => {
                 )
               case 'Lettuce':
                 return (
-                  <div>
-                    <img src={Lettuce} />
-                  </div>
+                    <div>
+                      <img src={Lettuce} />
+                    </div>
+                )
+              case 'Meat':
+                return (
+                    <div>
+                      <img src={Meat} />
+                    </div>
                 )
               case 'Tomato':
                 return (
-                  <div>
-                    <img src={Tomato} />
-                  </div>
+                    <div>
+                      <img src={Tomato} />
+                    </div>
                 )
               default:
                 return null

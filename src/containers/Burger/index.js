@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import AddIngredient from '../AddIngredients'
-import BurgerIngredients from './BurgerIngredients/BurgerIngredients'
-import LowerBurger from './LowerBurger/LowerBurger'
-import UpperBurger from './UpperBurger/UpperBurger'
+import BurgerIngredients from './BurgerIngredients'
+import LowerBurger from './LowerBurger'
+import UpperBurger from './UpperBurger'
 import { AddIngredientStyles, BurgerStyles } from './BurgerStyles'
 
-export default () => {
+const Burger = () => {
   const Ingredient = useSelector(state => state.Ingredients)
   const usedDispatch = useDispatch()
   const bill = useSelector(state => state.Bill)
-  const [status, setStatus] = useState({
-    Lettuce: false,
-    Tomato: false,
-    Meat: false,
-    Cheese: false
-  })
+  const status = useSelector(state => state.Status)
+
 
   const removeItem = (type, price) => {
     const updateIngredients = {
@@ -29,7 +25,7 @@ export default () => {
         ...status,
         [type]: false
       }
-      setStatus(updatedStatus)
+      usedDispatch({ type: 'REMOVE_STATUS', payload: { Status: updatedStatus } })
     }
     usedDispatch({ type: 'REMOVE_BILL', payload: { Bill: bill - price } })
     usedDispatch({ type: 'REMOVE_INGREDIENTS', payload: { Ingredients: updateIngredients } })
@@ -43,7 +39,8 @@ export default () => {
       ...status,
       [type]: true
     }
-    setStatus(updatedStatus)
+
+    usedDispatch({ type: 'ENABLE_STATUS', payload: { Status: updatedStatus } })
     usedDispatch({ type: 'ADD_BILL', payload: { Bill: bill + price } })
     usedDispatch({ type: 'ADD_INGREDIENTS', payload: { Ingredients: updateIngredients } })
   }
@@ -67,3 +64,5 @@ export default () => {
     </>
   )
 }
+
+export default Burger
