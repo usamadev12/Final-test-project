@@ -1,0 +1,6 @@
+export const ADD_ONE = 'ADD_ONE'
+export const MINUS_ONE = 'MINUS_ONE'
+export const ADD_INGREDIENTS = 'ADD_INGREDIENTS'
+export const REMOVE_INGREDIENTS = 'REMOVE_INGREDIENTS'
+export const ADD_BILL = 'ADD_BILL'
+export const REMOVE_BILL = 'REMOVE_BILL'

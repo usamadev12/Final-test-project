@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import './App.css'
+import Burger from 'containers/Burger'
+import Counter from 'counter'
+import Header from "./components/Header";
+
+const App = () => (
+  <Router>
+    <div>
+      <Switch>
+        <Route path={'/burger-app'}>
+          <Header />
+          <Burger />
+        </Route>
+        <Route path={'/counter'} component={Counter} />
+        <Redirect to={'/burger-app'} />
+      </Switch>
     </div>
-  );
-}
+  </Router>
+)
 
-export default App;
+export default App
