@@ -1,11 +1,5 @@
 import React from 'react'
 
-import Cheese from 'assets/images/cheese.jpg'
-import Lettuce from 'assets/images/lettuse.jpg'
-import Meat from 'assets/images/meat.jpg'
-import Tomato from 'assets/images/tomato.jpg'
-
-
 
 const BurgerIngredients = ingredients => {
   return (
@@ -14,29 +8,11 @@ const BurgerIngredients = ingredients => {
         ingredients.ingredients[ingredient].map(() =>
           (() => {
             switch (ingredient) {
-              case 'Cheese':
+              case ingredient:
                 return (
                   <div>
-                    <img src={Cheese} />
+                    <img src={ingredients.ingredients[ingredient][0].image}/>
                   </div>
-                )
-              case 'Lettuce':
-                return (
-                    <div>
-                      <img src={Lettuce} />
-                    </div>
-                )
-              case 'Meat':
-                return (
-                    <div>
-                      <img src={Meat} />
-                    </div>
-                )
-              case 'Tomato':
-                return (
-                    <div>
-                      <img src={Tomato} />
-                    </div>
                 )
               default:
                 return null

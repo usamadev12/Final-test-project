@@ -20,7 +20,7 @@ const Burger = () => {
       [type]: Ingredient[type].filter(item => item.id !== Ingredient[type].length)
     }
 
-    if (updateIngredients[type].length == 0) {
+    if (updateIngredients[type].length == 1) {
       const updatedStatus = {
         ...status,
         [type]: false
@@ -33,7 +33,7 @@ const Burger = () => {
   const addItem = (type, price) => {
     const updateIngredients = {
       ...Ingredient,
-      [type]: [...Ingredient[type], { id: Ingredient[type].length + 1 }]
+      [type]: [...Ingredient[type], { id: Ingredient[type].length + 1}]
     }
     const updatedStatus = {
       ...status,

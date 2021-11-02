@@ -6,14 +6,18 @@ import {
   REMOVE_BILL,
   REMOVE_INGREDIENTS
 } from '../actions'
+import Cheese from 'assets/images/cheese.jpg'
+import Lettuce from 'assets/images/lettuse.jpg'
+import Meat from 'assets/images/meat.jpg'
+import Tomato from 'assets/images/tomato.jpg'
 import {ENABLE_STATUS, REMOVE_STATUS} from "../components/actions";
 
 const initialState = {
   Ingredients: {
-    Lettuce: [],
-    Cheese: [],
-    Meat: [],
-    Tomato: []
+    Lettuce: [{image: Lettuce}],
+    Cheese: [{image: Cheese}],
+    Meat: [{image: Meat}],
+    Tomato: [{image: Tomato}]
   },
   number: 0,
   Bill: 0,
